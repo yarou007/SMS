@@ -1,8 +1,11 @@
 package com.GL.SMS.models;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -29,7 +32,9 @@ public class Enseignant {
 
     private String Password;
 
+    @Temporal(TemporalType.DATE)
     private Date DateNaissence;
 
+    @Temporal(TemporalType.DATE)
     private Date LastTimeActivity;
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/enseignant")
@@ -15,8 +16,8 @@ public class EnseignantRestController {
     EnseiganantRepository ensRepo;
 
     @GetMapping("/{id}")
-    public Enseignant getEnseignant(@PathVariable int id){
-       return ensRepo.getById(id);
+    public Optional<Enseignant> getEnseignant(@PathVariable int id){
+       return ensRepo.findById(id);
     }
     @PostMapping
     public Enseignant saveEnseingant(@RequestBody Enseignant e){
