@@ -1,4 +1,8 @@
 package com.GL.SMS.Repository;
 
-public class EnseiganantRepository {
+import com.GL.SMS.models.Enseignant;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EnseiganantRepository extends JpaRepository<Enseignant,Integer> {
+
 }
