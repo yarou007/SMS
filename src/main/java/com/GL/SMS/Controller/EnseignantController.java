@@ -19,7 +19,11 @@ public class EnseignantController {
     @Autowired
     private EnseignantRepository ensRepo;
 
-    @GetMapping("/index")
+    @GetMapping("/")
+    public String home(){
+    return "home";
+    }
+    @GetMapping("/ListeEnseignants")
     public String index(Model model, @RequestParam(name="page", defaultValue = "0") int page, @RequestParam(name="size", defaultValue = "4")int size
             , @RequestParam(name="keyword", defaultValue = "") String kw) {
        // Page<Enseignant> pageEnseignants= ensRepo.findByNomContains(kw,PageRequest.of(page, size));// went to repo and findAll

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1.html">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>DASHBOARD</title>
+
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="container">
+        <div class="row">
+    <div class=" col-md-6 card " style="width: 18rem;">
+        <img src="images/parents.jpg" class="card-img-top" alt="Image parents"/>
+        <div class="card-body">
+            <h5 class="card-title">Vers Parents UNIVERS</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Allez vers parents</a>
+        </div>
+    </div>
+    <div class="col-md-6 card" style="width: 18rem;">
+        <img src="images/teacher.jpg" class="card-img-top" alt="image enseignants" />
+        <div class="card-body">
+            <h5 class="card-title">Vers Enseignants UNIVERS</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Allez vers Enseignants</a>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
