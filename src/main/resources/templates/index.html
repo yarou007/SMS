@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template2.html">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Ajout Enseignant</title>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="mt-3">
+        <div class="col-sm-6 offset-3">
+            <div class="card">
+                <div class="card-header">Welcome to OUR SMS</div>
+                <div th:if="${param.success}">
+                    <div class="alert alert-info">
+                        You have successfully registered our app!
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="p-3">
+                        <form th:action="@{/saveParent}" method="POST">
+                            <div class="mb-2">
+                                <label class="form-label">Cin: </label>
+                                <input type="text" name="Cin" class="form-control" th:value="${parent.Cin}">
+                                <span class="text-danger" th:errors="${parent.Cin}"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Name: </label>
+                                <input type="text" name="nom" class="form-control" th:value="${parent.Nom}">
+                                <span class="text-danger" th:errors="${parent.Nom}"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Prenom: </label>
+                                <input type="text" name="prenom" class="form-control" th:value="${parent.Prenom}">
+                                <span class="text-danger" th:errors="${parent.Prenom}"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Email: </label>
+                                <input type="email" name="email" class="form-control" th:value="${parent.Email}">
+                                <span class="text-danger" th:errors="${parent.Email}"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Date de naissence: </label>
+                                <input type="date" name="dateNaissence" class="form-control"
+                                       th:value="${parent.dateNaissence}">
+                                <span class="text-danger" th:errors="${parent.DateNaissence}"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Num tell: </label>
+                                <input type="number" name="NumTel" class="form-control" th:value="${parent.NumTel}">
+                                <span class="text-danger" th:errors="${parent.NumTel}"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Num tell: </label>
+                                <input type="text" name="AdresseParent" class="form-control" th:value="${parent.AdresseParent}">
+                                <span class="text-danger" th:errors="${parent.AdresseParent}"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Password: </label>
+                                <input type="text" name="password" class="form-control" th:value="${parent.Password}">
+                                <span class="text-danger" th:errors="${parent.Password}"></span>
+                            </div>
+
+                            <button class="btn btn-success">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+
+</html>
