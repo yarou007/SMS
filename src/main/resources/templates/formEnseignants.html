@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1.html">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Ajout Patient</title>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="mt-3">
+        <div class="col-sm-6 offset-3">
+            <div class="card">
+                <div class="card-header">New Enseignant</div>
+                <div class="card-body">
+                    <div class="p-3">
+                        <form th:action="@{/saveEnseignant}" method="POST">
+                            <div class="mb-2">
+                                <label class="form-label">Name: </label>
+                                <input type="text" name="nom" class="form-control" th:value="${enseignant.Nom}">
+                                <span class="text-danger" th:errors="${enseignant.Nom}"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Prenom: </label>
+                                <input type="text" name="prenom" class="form-control" th:value="${enseignant.Prenom}">
+                                <span class="text-danger" th:errors="${enseignant.Prenom}"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Email: </label>
+                                <input type="email" name="email" class="form-control" th:value="${enseignant.Email}">
+                                <span class="text-danger" th:errors="${enseignant.Email}"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Date de naissence: </label>
+                                <input type="date" name="dateNaissence" class="form-control"
+                                       th:value="${enseignant.dateNaissence}">
+                                <span class="text-danger" th:errors="${enseignant.DateNaissence}"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Num tell: </label>
+                                <input type="number" name="NumTel" class="form-control" th:value="${enseignant.NumTel}">
+                                <span class="text-danger" th:errors="${enseignant.NumTel}"></span>
+                            </div>
+
+                            <div class="mb-2">
+                            <label class="form-label">Password: </label>
+                            <input type="text" name="password" class="form-control" th:value="${enseignant.Password}">
+                            <span class="text-danger" th:errors="${enseignant.Password}"></span>
+                        </div>
+
+                            <button class="btn btn-success">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

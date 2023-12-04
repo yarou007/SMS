@@ -21,7 +21,6 @@ public class Enseignant {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
 
-
     private String Nom;
 
     private String Prenom;

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1.html">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Enseignant</title>
+
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="p-3">
+        <div class="card">
+            <div class="card-header">Liste Enseignants</div>
+
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr class="col  bg-light">
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>NumTell</th>
+                        <th>DateNaissence</th>
+                        <th colspan="2" class="px-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action</th>
+                    </tr>
+
+
+                    <tr th:each="enseignant:${ListEnseignants}">
+                        <td th:text="${enseignant.id}"></td>
+                        <td th:text="${enseignant.Nom}"></td>
+                        <td th:text="${enseignant.Email}"></td>
+                        <td th:text="${enseignant.NumTel}"></td>
+                        <td th:text="${enseignant.DateNaissence}"></td>
+                        <td>
+                            <a onclick="return confirm('met2aked?')"
+                               th:href="@{/admin/delete(id=${enseignant.id}, keyword=${keyword} , page=${currentPage}) }"
+                               class="btn btn-danger"><i class="bi bi-trash3"></i> </a>
+                        </td>
+                        <td>
+                            <a th:href="@{editEnseignant(id=${enseignant.id})}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+                        </td>
+                    </tr>
+                    </thead>
+
+                </table>
+                <ul class="nav nav-pills">
+
+                    <li th:each="page,status:${pages}">
+                        <a
+                                th:href="@{/index(page=${status.index},keyword=${keyword})}"
+                                th:class="${currentPage==status.index?'btn btn-info ms-2':'btn btn-outline-info ms-2'}"
+                                th:text="${1+status.index}"
+                        ></a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+</body>
+
+</html>
