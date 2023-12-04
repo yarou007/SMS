@@ -20,6 +20,7 @@
                     <thead>
                     <tr class="col  bg-light">
                         <th>ID</th>
+                        <th>PreNom</th>
                         <th>Nom</th>
                         <th>Email</th>
                         <th>NumTell</th>
@@ -30,6 +31,7 @@
 
                     <tr th:each="enseignant:${ListEnseignants}">
                         <td th:text="${enseignant.id}"></td>
+                        <td th:text="${enseignant.Prenom}"></td>
                         <td th:text="${enseignant.Nom}"></td>
                         <td th:text="${enseignant.Email}"></td>
                         <td th:text="${enseignant.NumTel}"></td>
@@ -40,7 +42,7 @@
                                class="btn btn-danger"><i class="bi bi-trash3"></i> </a>
                         </td>
                         <td>
-                            <a th:href="@{editEnseignant(id=${enseignant.id})}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+                            <a th:href="@{editEns(id=${enseignant.id})}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
                         </td>
                     </tr>
                     </thead>

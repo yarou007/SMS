@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="ISO-8859-1">
-    <title>Ajout Enseignant</title>
+    <title>Modifier Enseignant</title>
 </head>
 
 <body>
@@ -12,10 +12,14 @@
     <div class="mt-3">
         <div class="col-sm-6 offset-3">
             <div class="card">
-                <div class="card-header">New Enseignant</div>
+                <div class="card-header">EDIT Enseignant</div>
                 <div class="card-body">
                     <div class="p-3">
-                        <form th:action="@{/saveEnseignant}" method="POST">
+                        <form th:action="@{/editDbEns}" method="POST">
+                            <div class="mb-2" hidden >
+                                <label  class="form-label">ID: </label><label class="form-label" th:text="${enseignant.id}"></label>
+                                <input  type="hidden" name="id" class="form-control" th:value="${enseignant.id}">
+                            </div>
                             <div class="mb-2">
                                 <label class="form-label">Name: </label>
                                 <input type="text" name="nom" class="form-control" th:value="${enseignant.Nom}">
@@ -43,13 +47,7 @@
                                 <span class="text-danger" th:errors="${enseignant.NumTel}"></span>
                             </div>
 
-                            <div class="mb-2">
-                            <label class="form-label">Password: </label>
-                            <input type="text" name="password" class="form-control" th:value="${enseignant.Password}">
-                            <span class="text-danger" th:errors="${enseignant.Password}"></span>
-                        </div>
-
-                            <button class="btn btn-success">Save</button>
+                            <button class="btn btn-success">UPDATE</button>
                         </form>
                     </div>
                 </div>

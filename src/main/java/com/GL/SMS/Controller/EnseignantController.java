@@ -36,7 +36,7 @@ public class EnseignantController {
         return "redirect:/index?page="+page+"&keyword="+keyword;
     }
     @GetMapping("/formEnseignant")
-    public String formEnseignants(Model model) {
+        public String formEnseignants(Model model) {
         model.addAttribute("enseignant",new Enseignant());
 
         return "formEnseignants";
@@ -47,6 +47,18 @@ public class EnseignantController {
         ensRepo.save(enseignant);
         return "redirect:/index?keyword="+enseignant.getNom();
     }
+    @GetMapping("/editEns")
+    public String editPatient(int id ,Model model) {
+        Enseignant ens= ensRepo.findById(id).get();
+        model.addAttribute("enseignant",ens);
+        return "formEditEns";
+    }
+    @PostMapping("/editDbEns")
+    public String editDbPatient(@Validated Enseignant enseignant, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {return "formEditEns";}
+        else ensRepo.save(enseignant);
+        return "redirect:/index?keyword="+enseignant.getNom();
 
+    }
 
 }
