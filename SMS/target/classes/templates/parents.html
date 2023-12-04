@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Parents List</title>
+</head>
+<body>
+    <h1>Parents List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>CIN</th>
+                <th>Name</th>
+                <!-- Add more columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="parent : ${parents}">
+             <td th:text="${parent.id}"></td>
+             <td th:text="${parent.cin}"></td>
+             <td th:text="${parent.nom + ' ' + parent.prenom}"></td>
+                <!-- Add more columns as needed -->
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Parents List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+    header nav a{
+        color : white; 
+        text-decoration : none ;
+    } 
+    header nav {
+        height : 50px;
+    }
+    #acceuil img{
+        width : 100%;
+        height:700px;
+        filter: brightness(30%) ;
+        
+    }
+    #acceuil h1{
+        position : absolute ;
+        margin-top : -450px;
+        margin-left : 40px;
+        color: white ;
+    }
+    #loginSignup img{
+        width : 70% ;
+        height : 250px ;
+        border-radius: 20px;
+        margin-left : 100px;
+            
+    }
+    #loginSignup .forms h4 , #loginSignup .forms p{
+        color : #136989;
+    }
+    #loginSignup form input[type="text"],#loginSignup form input[type="password"],#loginSignup form input[type="email"],#loginSignup form input[type="date"] {
+        border-radius: 15px ;
+        background-color : grey;
+        opacity : 0.5;
+        border : 0px;
+        width : 70%;
+    }
+    #loginSignup form input[type="submit"]{
+        border-radius: 18px ;
+        color : white ;
+        background-color : #136989;
+        border : 0px;
+        font-weight: bold ;
+        width : 30%;
+        height : 40px;
+    }
+    #loginSignup button{
+        border : 0px;
+        color : #136989;
+        text-decoration: underline;
+        background-color : #f8f9fa;
+    }
+    
+ </style>
+<body>
+    <header class="container-fluid">
+        <nav class="row bg-dark">
+            <div class="col-4"></div><!-- comment -->
+            <div class="col-2 mt-2"><a href="#acceuil">Acceuil</a></div>
+            <div class="col-2 mt-2"><a href="">Our services</a></div>
+            <div class="col-2 mt-2"><a href="">Contact</a></div>
+            <div class="col-2 mt-2"><a href="">Login /Sign up</a></div>
+    </header>
+    <section id="acceuil">
+        <img src="./pictures/pic1.jpg">
+        <h1 class="col-6">Place your child's future in our hands . We nurture excellence and shape bright tomorrows. </h1>
+    </section>    
+    <br><br><br>
+    <section id="loginSignup" class="bg-light">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-5">
+                    <h3 class="text-center"> 
+                        <button onclick="hid_function_y()">Login</button> Or <button onclick="hid_function_x()"> Sign up </button> <br> 
+                        to Save your Children </h3><br>
+                    <img src="./pictures/vue-face-enfants-ecole.jpg" class="text-center">
+                </div>
+                <div class="col-7 forms" id="x">
+                    <h4 class="text-center"> Welcome </h4>
+                    <p class="text-center"> enter your information if you do not have an account </p>
+                    <form th:action="@{/saveParent}" method="post" class="text-center">
+                        <div class="row">
+                            <div class="col-6" >
+                                <label for="nom"> First Name : </label><br>
+                                <input type="text" name="nom" th:value="${parent.Nom}" >
+                            </div>
+                            <div class="col-6" >
+                                <label for="nom"> Last Name : </label><br>
+                                <input type="text" name="prenom" th:value="${parent.Prenom}">
+                            </div>
+                        </div>
+                          <div class="row">
+                            <div class="col-6" >
+                                <label for="nom"> Email : </label><br>
+                                <input type="email" name="email" th:value="${parent.Email}">
+                            </div>
+                            <div class="col-6" >
+                                <label for="nom"> Cin : </label><br>
+                                <input type="text" name="cin" th:value="${parent.Cin}">
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-6" >
+                                <label for="nom"> Local Adresse : </label><br>
+                                <input type="text" name="adresseParent" th:value="${parent.AdresseParent}">
+                            </div>
+                            <div class="col-6" >
+                                <label for="nom"> Phone Number : </label><br>
+                                <input type="text" name="numTel" th:value="${parent.NumTel}">
+                            </div>
+                          </div>
+                           <div class="row">
+                            <div class="col-6" >
+                                <label for="nom"> Date of birth : </label><br>
+                                <input type="date" >
+                            </div>
+                            <div class="col-6" >
+                                <label for="nom"> Password </label><br>
+                                <input type="password" name="password" th:value="${parent.Password}">
+                            </div>
+                          </div>
+                           <div class="row">
+                                <div class="col-6" >
+                                    <label for="nom"> Confirm Password </label><br>
+                                    <input type="password">
+                                </div>
+                            </div><br>
+                            <div class="col-12" >
+                                <br>
+                                <button>Save</button>
+                            </div>
+                    </form>
+                </div>
+                <div class="col-7 forms" id="y" style="display: none;">
+                    <h4 class="text-center"> Welcome </h4>
+                    <p class="text-center"> enter your information if already not have an account </p>
+                    <form th:action="@{/parents}" th:object="${parent}" method="post" class="text-center">
+                        <div class="row">
+                            <div class="col-7" style="margin-left : 170px;">
+                                <label for="nom"> Email </label><br>
+                                <input type="text" >
+                            </div>
+                        </div>
+                        <br>
+                         <div class="row">
+                            <div class="col-7" style="margin-left : 170px;">
+                                <label for="nom"> Password</label><br>
+                                <input type="password">
+                            </div>
+                        </div>
+                        <br>
+                            <div class="col-12" >
+                                <br>
+                                <input type="Submit" value="Confirm" >
+                            </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+            
+        
+    </div>
+</body>
+<script>
+function hid_function_x(){
+    var div_x=document.getElementById("x");
+    var div_y=document.getElementById("y");
+    div_x.style.display="block";
+    div_y.style.display="none";
+}
+function hid_function_y(){
+    var div_x=document.getElementById("x");
+    var div_y=document.getElementById("y");
+    div_x.style.display="none";
+    div_y.style.display="block";
+}
+</script>
+</html>
